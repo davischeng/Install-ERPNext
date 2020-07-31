@@ -11,12 +11,12 @@
 选择最小化安装<带GUI的服务器>
 ##### After install, login and ensure your installation is up to date by running :
 安装完成请更新系统
-  sudo yum update -y
+#####   sudo yum update -y
 Install the extra packages repository:
 添加epel-release源
-  sudo yum install -y epel-release
+#####   sudo yum install -y epel-release
 替换成国内源
-  # file: /etc/yum.repos.d/CentOS-AppStream.repo
+#####   # file: /etc/yum.repos.d/CentOS-AppStream.repo
 [AppStream]
 name=CentOS-$releasever - AppStream
 baseurl=http://mirrors.aliyun.com/centos/$releasever/AppStream/$basearch/os/
@@ -24,7 +24,7 @@ gpgcheck=1
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
 Copy
-# file: /etc/yum.repos.d/CentOS-Base.repo
+##### # file: /etc/yum.repos.d/CentOS-Base.repo
 [BaseOS]
 name=CentOS-$releasever - Base
 baseurl=http://mirrors.aliyun.com/centos/$releasever/BaseOS/$basearch/os/
@@ -32,14 +32,14 @@ gpgcheck=1
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
 Copy
-# file: /etc/yum.repos.d/CentOS-Epel.repo
+##### # file: /etc/yum.repos.d/CentOS-Epel.repo
 [epel]
 name=CentOS-$releasever - Epel
 baseurl=http://mirrors.aliyun.com/epel/8/Everything/$basearch
 enabled=1
 gpgcheck=0
 Copy
-# file: /etc/yum.repos.d/CentOS-Media.repo
+##### # file: /etc/yum.repos.d/CentOS-Media.repo
 [c8-media-BaseOS]
 name=CentOS-BaseOS-$releasever - Media
 baseurl=file:///media/CentOS/BaseOS/
