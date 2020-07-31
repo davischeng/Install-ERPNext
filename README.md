@@ -1,7 +1,7 @@
 ##### Install ERPNext on CentOS 8
-##### 在CentOS 8上安装ERPNext
+在CentOS 8上安装ERPNext
 ##### Some quick notes on installing ERPNext on CentOS 8.
-##### 有关在CentOS 8上安装ERPNext的一些快速注意事项。
+有关在CentOS 8上安装ERPNext的一些快速注意事项。
 
 Download  CentOS8 on http://isoredirect.centos.org/centos/8/isos/x86_64/.
 下载CentOS8
