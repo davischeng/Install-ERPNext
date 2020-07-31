@@ -3,13 +3,13 @@
 ##### Some quick notes on installing ERPNext on CentOS 8.
 有关在CentOS 8上安装ERPNext的一些快速注意事项。
 
-Download  CentOS8 on http://isoredirect.centos.org/centos/8/isos/x86_64/.
+##### Download  CentOS8 on http://isoredirect.centos.org/centos/8/isos/x86_64/.
 下载CentOS8
-Install CentOS8.
+##### Install CentOS8.
 安装系统Centos8
-Install CentOS 8. We chose the "minimal" install for this guide.
+##### Install CentOS 8. We chose the "minimal" install for this guide.
 选择最小化安装<带GUI的服务器>
-After install, login and ensure your installation is up to date by running :
+##### After install, login and ensure your installation is up to date by running :
 安装完成请更新系统
   sudo yum update -y
 Install the extra packages repository:
