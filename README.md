@@ -94,47 +94,47 @@ Set some kernel parameters:
   echo "echo never > /sys/kernel/mm/transparent_hugepage/enabled" | sudo tee -a /etc/rc.d/rc.local  
   sudo chmod 755 /etc/rc.d/rc.local   
   
-Reboot:
-This will allow the updates to settle and the kernel parameters to get set.
+Reboot:  
+This will allow the updates to settle and the kernel parameters to get set.  
 
-  sudo reboot
+  sudo reboot  
   
-Prepare MariaDB (mysql) for ERPNext
+##### Prepare MariaDB (mysql) for ERPNext
 
-Edit the MariaDB configuration to set the correct character set:
-  cat <<EOF >/etc/my.cnf.d/erpnext.cnf
-[mysqld]
-innodb-file-format=barracuda
-innodb-file-per-table=1
-innodb-large-prefix=1
-character-set-client-handshake = FALSE
-character-set-server = utf8mb4
-collation-server = utf8mb4_unicode_ci
+Edit the MariaDB configuration to set the correct character set:  
+  cat <<EOF >/etc/my.cnf.d/erpnext.cnf  
+[mysqld]  
+innodb-file-format=barracuda  
+innodb-file-per-table=1  
+innodb-large-prefix=1  
+character-set-client-handshake = FALSE  
+character-set-server = utf8mb4  
+collation-server = utf8mb4_unicode_ci  
 
-[mysql]
-default-character-set = utf8mb4
-EOF
+[mysql]  
+default-character-set = utf8mb4  
+EOF  
 
-Enable and start the MariaDB service:
-  systemctl enable mariadb
-  systemctl start mariadb
-Secure the service:
-Start the secure script:
+Enable and start the MariaDB service:  
+  systemctl enable mariadb  
+  systemctl start mariadb  
+Secure the service:  
+Start the secure script:  
 
-  mysql_secure_installation
-This is an interactive script that will ask you questions.
+  mysql_secure_installation  
+This is an interactive script that will ask you questions.  
 
-Options are:
+Options are:  
 
-Current root password is none - just press enter.
-Enter a new password for the root password - remember it!
-Remove anonymous users - Y
-Disallow remote root - Y
-Remove test database - Y
-Reload priv tables now - Y
-Done!
+Current root password is none - just press enter.  
+Enter a new password for the root password - remember it!  
+Remove anonymous users - Y  
+Disallow remote root - Y  
+Remove test database - Y  
+Reload priv tables now - Y  
+Done!  
 
-Install ERPNext
+##### Install ERPNext
 
 Switch to the ERP user (or login as it) and change to home directory:
   su erp
