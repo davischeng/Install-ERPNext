@@ -17,13 +17,13 @@ Install the extra packages repository:
 #####   sudo yum install -y epel-release
 替换成国内源
 #####   # file: /etc/yum.repos.d/CentOS-AppStream.repo
-[AppStream]
-name=CentOS-$releasever - AppStream
-baseurl=http://mirrors.aliyun.com/centos/$releasever/AppStream/$basearch/os/
-gpgcheck=1
-enabled=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
-Copy
+[AppStream] 
+name=CentOS-$releasever - AppStream 
+baseurl=http://mirrors.aliyun.com/centos/$releasever/AppStream/$basearch/os/  
+gpgcheck=1  
+enabled=1 
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial 
+Copy  
 ##### # file: /etc/yum.repos.d/CentOS-Base.repo
 [BaseOS]
 name=CentOS-$releasever - Base
