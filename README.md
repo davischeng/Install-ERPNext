@@ -23,77 +23,76 @@ baseurl=http://mirrors.aliyun.com/centos/$releasever/AppStream/$basearch/os/
 gpgcheck=1   
 enabled=1   
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial   
-Copy    
 
 ##### # file: /etc/yum.repos.d/CentOS-Base.repo
-[BaseOS]
-name=CentOS-$releasever - Base
-baseurl=http://mirrors.aliyun.com/centos/$releasever/BaseOS/$basearch/os/
-gpgcheck=1
-enabled=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
-Copy
+[BaseOS]  
+name=CentOS-$releasever - Base  
+baseurl=http://mirrors.aliyun.com/centos/$releasever/BaseOS/$basearch/os/  
+gpgcheck=1  
+enabled=1  
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial  
+
 ##### # file: /etc/yum.repos.d/CentOS-Epel.repo
-[epel]
-name=CentOS-$releasever - Epel
-baseurl=http://mirrors.aliyun.com/epel/8/Everything/$basearch
-enabled=1
-gpgcheck=0
-Copy
+[epel]  
+name=CentOS-$releasever - Epel  
+baseurl=http://mirrors.aliyun.com/epel/8/Everything/$basearch  
+enabled=1  
+gpgcheck=0  
+
 ##### # file: /etc/yum.repos.d/CentOS-Media.repo
-[c8-media-BaseOS]
-name=CentOS-BaseOS-$releasever - Media
-baseurl=file:///media/CentOS/BaseOS/
-gpgcheck=1
-enabled=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
-[c8-media-AppStream]
-name=CentOS-AppStream-$releasever - Media
-baseurl=file:///media/CentOS/AppStream/
-gpgcheck=1
-enabled=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
-或者
-cd /etc/yum.repos.d/
-mv /etc/yum.repos.d/CentOS-AppStream.repo /etc/yum.repos.d/CentOS-AppStream.repo.bak
-mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
-mv /etc/yum.repos.d/CentOS-centosplus.repo /etc/yum.repos.d/CentOS-centosplus.repo.bak
-mv /etc/yum.repos.d/CentOS-Extras.repo /etc/yum.repos.d/CentOS-Extras.repo.bak
-mv /etc/yum.repos.d/CentOS-PowerTools.repo /etc/yum.repos.d/CentOS-PowerTools.repo.bak
+[c8-media-BaseOS]  
+name=CentOS-BaseOS-$releasever - Media  
+baseurl=file:///media/CentOS/BaseOS/  
+gpgcheck=1  
+enabled=1  
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial  
+[c8-media-AppStream]  
+name=CentOS-AppStream-$releasever - Media  
+baseurl=file:///media/CentOS/AppStream/  
+gpgcheck=1  
+enabled=1  
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial  
+或者  
+cd /etc/yum.repos.d/  
+mv /etc/yum.repos.d/CentOS-AppStream.repo /etc/yum.repos.d/CentOS-AppStream.repo.bak  
+mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak  
+mv /etc/yum.repos.d/CentOS-centosplus.repo /etc/yum.repos.d/CentOS-centosplus.repo.bak  
+mv /etc/yum.repos.d/CentOS-Extras.repo /etc/yum.repos.d/CentOS-Extras.repo.bak  
+mv /etc/yum.repos.d/CentOS-PowerTools.repo /etc/yum.repos.d/CentOS-PowerTools.repo.bak  
 
-curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-8.repo
-yum makecache
-yum -y update
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-8.repo  
+yum makecache  
+yum -y update  
 
 
-Prepare OS for ERPNext
+##### Prepare OS for ERPNext  
 
-Install required packages:
-  sudo dnf groupinstall "Development Tools"
-  sudo yum install -y gcc make git mariadb mariadb-server nginx supervisor python3 python3-devel python2 python2-devel redis nodejs
-  sudo npm install -g yarn
-Create a user for ERPNext to run as, allowing it sudo access too:
-  sudo useradd -m erp -G wheel
-(Optional) Configure sudo so it doesn't need a password:
-This step is optional but it might save you quite a bit of typing. You might want to cut'n'paste this one!
+##### Install required packages:
+  sudo dnf groupinstall "Development Tools"  
+  sudo yum install -y gcc make git mariadb mariadb-server nginx supervisor python3 python3-devel python2 python2-devel redis nodejs  
+  sudo npm install -g yarn  
+##### Create a user for ERPNext to run as, allowing it sudo access too:
+  sudo useradd -m erp -G wheel  
+(Optional) Configure sudo so it doesn't need a password:  
+This step is optional but it might save you quite a bit of typing. You might want to cut'n'paste this one!  
 
-  sudo sed -i 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
+  sudo sed -i 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers  
   
-关闭firewall
-  systemctl status firewalld #显示服务的状态
-  systemctl disable firewalld #在开机时禁用服务
+##### 关闭firewall
+  systemctl status firewalld #显示服务的状态  
+  systemctl disable firewalld #在开机时禁用服务  
   
-关闭Sulinux
-  sestatus -v 或getenforce  #显示服务的状态
-  永久关闭selinux
-  vi /etc/selinux/config 
-  SELINUX=disabled  默认值是: #SELINUX=enforcing
+##### 关闭Sulinux
+  sestatus -v 或getenforce  #显示服务的状态  
+  永久关闭selinux  
+  vi /etc/selinux/config   
+  SELINUX=disabled  默认值是: #SELINUX=enforcing  
   
-设置一些内核参数：
-Set some kernel parameters:
-  echo "vm.overcommit_memory = 1" | sudo tee -a /etc/sysctl.conf
-  echo "echo never > /sys/kernel/mm/transparent_hugepage/enabled" | sudo tee -a /etc/rc.d/rc.local
-  sudo chmod 755 /etc/rc.d/rc.local 
+##### 设置一些内核参数：
+Set some kernel parameters:  
+  echo "vm.overcommit_memory = 1" | sudo tee -a /etc/sysctl.conf  
+  echo "echo never > /sys/kernel/mm/transparent_hugepage/enabled" | sudo tee -a /etc/rc.d/rc.local  
+  sudo chmod 755 /etc/rc.d/rc.local   
   
 Reboot:
 This will allow the updates to settle and the kernel parameters to get set.
