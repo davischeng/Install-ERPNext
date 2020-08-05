@@ -137,71 +137,71 @@ Done!
 ##### Install ERPNext
 
 Switch to the ERP user (or login as it) and change to home directory:  
-  su erp  
-  cd  
+#####  su erp  
+#####  cd  
 Install frappe-bench with pip and initialise:  
 This step takes a while so get yourself a beer. It reaches out to the Internet and downloads a bunch of stuff and then builds it.  
 
-  pip3 install --user frappe-bench  
-  bench init frappe-bench --frappe-branch version-12  
+#####  pip3 install --user frappe-bench  
+#####  bench init frappe-bench --frappe-branch version-12  
 For the second command, a red error message appears early on about an "editable requirement." Ignore it.  
 
 When it's done you should get the message in green text:  
 
-  SUCCESS: Bench frappe-bench initialized  
+<span style="color: green"> SUCCESS: Bench frappe-bench initialized  </span>   
 Create a new frappe site:  
 Prerequisites:  
 
-You need a name for your site. We called ours erpdev.softwaretohardware.com
-You'll need your MariaDB root password from earlier.
-First we temporarily start the frappe development server:
+You need a name for your site. We called ours erpdev.softwaretohardware.com  
+You'll need your MariaDB root password from earlier.  
+First we temporarily start the frappe development server:  
 
-  cd frappe-bench
-  sed -i '/web:/ s/$/ --noreload/' Procfile
-  bench start >/tmp/bench_log &
-Then we create a new site. Substitute your own name.
+##### cd frappe-bench
+#####  sed -i '/web:/ s/$/ --noreload/' Procfile
+#####  bench start >/tmp/bench_log &
+Then we create a new site. Substitute your own name.  
 
-  bench new-site erpdev.softwaretohardware.com
-You will be prompted for the mysql password and a bit later, for the adminstrator password for your new site.
+#####  bench new-site erpdev.leanclouds.com  
+You will be prompted for the mysql password and a bit later, for the adminstrator password for your new site.  
 
-NOTE: Don't visit your new site with a browser just yet!
+NOTE: Don't visit your new site with a browser just yet!  
 
-Install the ERPNext application
-  bench get-app erpnext --branch version-12
-  bench install-app erpnext
-At the end of this step, the temporary server will stop and the exception message looks bad. You can ignore it.
+Install the ERPNext application  
+#####  bench get-app erpnext --branch version-12
+#####  bench install-app erpnext
+At the end of this step, the temporary server will stop and the exception message looks bad. You can ignore it.  
 
-Bring back your temporary server
-  bench start >/tmp/bench_log &
-  bench update
-You now have an ERPNext instance listening on port 8000.
+Bring back your temporary server  
+#####  bench start >/tmp/bench_log &
+#####  bench update
+You now have an ERPNext instance listening on port 8000.  
 
-Visit it with a browser to set it up.
+Visit it with a browser to set it up.  
 
-When you're done, bring the server to the foreground and press Ctrl+C
+When you're done, bring the server to the foreground and press Ctrl+C  
 
-  fg
-You can start it again at any time.
+#####  fg
+You can start it again at any time.  
 
-(Optional) Setup in production mode
+##### (Optional) Setup in production mode  
 
-Ensure the test server from above is not running.
+Ensure the test server from above is not running.  
 
-Create the production configuration files for supervisor and nginx:
-  bench setup supervisor
-  bench setup nginx
+Create the production configuration files for supervisor and nginx:  
+#####  bench setup supervisor  
+#####  bench setup nginx
 Set permissions including relaxing SELinux a bit
-  chmod 755 /home/erp
-  chcon -t httpd_config_t config/nginx.conf
-  sudo setsebool -P httpd_can_network_connect=1
-  sudo setsebool -P httpd_enable_homedirs=1
-  sudo setsebool -P httpd_read_user_content=1
+#####  chmod 755 /home/erp
+#####  chcon -t httpd_config_t config/nginx.conf
+#####  sudo setsebool -P httpd_can_network_connect=1
+#####  sudo setsebool -P httpd_enable_homedirs=1
+#####  sudo setsebool -P httpd_read_user_content=1
 Link the new configuration files to their respective services:
-  sudo ln -s `pwd`/config/supervisor.conf /etc/supervisord.d/frappe-bench.ini
-  sudo ln -s `pwd`/config/nginx.conf /etc/nginx/conf.d/frappe-bench.conf
+#####  sudo ln -s `pwd`/config/supervisor.conf /etc/supervisord.d/frappe-bench.ini
+#####  sudo ln -s `pwd`/config/nginx.conf /etc/nginx/conf.d/frappe-bench.conf
 Enable services to start at boot:
-  sudo systemctl enable supervisord
-  sudo systemctl enable nginx
+#####  sudo systemctl enable supervisord
+#####  sudo systemctl enable nginx
 Reboot:
-  sudo reboot
+#####  sudo reboot
 After this your server should be accessible on port 80. You'll need to use the domain name you specified above when creating the site, otherwise you'll see the default nginx page.
