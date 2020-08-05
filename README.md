@@ -136,21 +136,21 @@ Done!
 
 ##### Install ERPNext
 
-Switch to the ERP user (or login as it) and change to home directory:
-  su erp
-  cd
-Install frappe-bench with pip and initialise:
-This step takes a while so get yourself a beer. It reaches out to the Internet and downloads a bunch of stuff and then builds it.
+Switch to the ERP user (or login as it) and change to home directory:  
+  su erp  
+  cd  
+Install frappe-bench with pip and initialise:  
+This step takes a while so get yourself a beer. It reaches out to the Internet and downloads a bunch of stuff and then builds it.  
 
-  pip3 install --user frappe-bench
-  bench init frappe-bench --frappe-branch version-12
-For the second command, a red error message appears early on about an "editable requirement." Ignore it.
+  pip3 install --user frappe-bench  
+  bench init frappe-bench --frappe-branch version-12  
+For the second command, a red error message appears early on about an "editable requirement." Ignore it.  
 
-When it's done you should get the message in green text:
+When it's done you should get the message in green text:  
 
-  SUCCESS: Bench frappe-bench initialized
-Create a new frappe site:
-Prerequisites:
+  SUCCESS: Bench frappe-bench initialized  
+Create a new frappe site:  
+Prerequisites:  
 
 You need a name for your site. We called ours erpdev.softwaretohardware.com
 You'll need your MariaDB root password from earlier.
