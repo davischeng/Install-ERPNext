@@ -86,10 +86,8 @@ Just so you know:
   systemctl status firewalld #显示服务的状态  
   systemctl disable firewalld #在开机时禁用服务 
 ```
-  sestatus -v 或getenforce  #显示服务的状态
-  
-  永久关闭selinux  
-  
+  #### sestatus -v 或getenforce  #显示服务的状态  
+  #### 永久关闭selinux    
 ```sh  
   vi /etc/selinux/config   
   SELINUX=disabled  默认值是: #SELINUX=enforcing  
@@ -108,14 +106,12 @@ Just so you know:
 
 2) Create a user for ERPNext to run as, allowing it sudo access too:
 添加用户  
-
 ```sh
   sudo useradd -m erp -G wheel
 ```
 
 3) (Optional) Configure sudo so it doesn't need a password:
-不启用密码
-
+不启用密码  
 This step is optional but it might save you quite a bit of typing.
 You might want to cut'n'paste this one!
 
@@ -125,7 +121,6 @@ You might want to cut'n'paste this one!
 
 4) Open the firewall:
 开户防火墙策略（如果已经关闭了请忽略)  
-
 ```sh
   sudo firewall-cmd --zone=public --add-port=80/tcp
   sudo firewall-cmd --zone=public --add-port=443/tcp
