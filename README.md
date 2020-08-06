@@ -1,4 +1,5 @@
-#### Install ERPNext on CentOS 8(在CentOS 8上安装ERPNext)
+#### Install ERPNext on CentOS 8
+在CentOS 8上安装ERPNext  
 ##### Some quick notes on installing ERPNext on CentOS 8.
 有关在CentOS 8上安装ERPNext的一些快速注意事项。
 
@@ -205,4 +206,3 @@ Reboot:
 #####  sudo reboot
 After this your server should be accessible on port 80. You'll need to use the domain name you specified above when creating the site, otherwise you'll see the default nginx page.
 
-color=0084ff&logo=zhihu&label=%E6%9E%9C%E5%86%BB%E8%99%BE%E4%BB%81&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dzhihu%26queryKey%3Dguodongxiaren
