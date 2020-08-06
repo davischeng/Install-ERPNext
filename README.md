@@ -1,7 +1,6 @@
 # Install ERPNext on CentOS 8
 在CentOS 8上安装ERPNext软件  
 http://erpnext.com/
-
 Some quick notes on installing ERPNext on CentOS 8.
 在CentOS 8上安装ERPNext的一些注意事项。  
 Just so you know:
@@ -22,7 +21,6 @@ Just so you know:
 ```sh
   sudo yum update -y
 ```
-
 3) Install the extra packages repository:
 添加epel-release源 
 ```sh
@@ -332,7 +330,7 @@ Ensure the test server from above is not running.
 After this your server should be accessible on port 80. You'll need to use the domain name you specified above when creating the site, otherwise you'll see the default nginx page.
 
 ## Bench Manager
-
+工作台管理模组安装  
 Bench Manager is a GUI frontend for Bench with the same functionalties. You can install it by executing the following command:
 ```sh
 $ bench setup manager
