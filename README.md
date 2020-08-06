@@ -86,18 +86,16 @@ Just so you know:
   systemctl status firewalld #显示服务的状态  
   systemctl disable firewalld #在开机时禁用服务 
 ```
-  #### sestatus -v 或getenforce  #显示服务的状态  
-  #### 永久关闭selinux    
+   sestatus -v 或getenforce  #显示服务的状态  
+   永久关闭selinux    
 ```sh  
   vi /etc/selinux/config   
   SELINUX=disabled  默认值是: #SELINUX=enforcing  
 ```
 ## Prepare OS for ERPNext
 为安装ERPNext准备  
-
 1) Install required packages:
 安装依赖  
-
 ```sh
   sudo dnf groupinstall -y "Development Tools"  
   sudo yum install -y gcc make git mariadb mariadb-server nginx supervisor python3 python3-devel python2 python2-devel redis nodejs
@@ -147,7 +145,7 @@ This will allow the updates to settle and the kernel parameters to get set.
 ## Prepare MariaDB (mysql) for ERPNext
 为ERPNext准备数据库（MariaDB 10)  
 1) Edit the MariaDB configuration to set the correct character set:
-编辑配置文件  
+编辑配置文件    
 ```sh
   cat <<EOF >/etc/my.cnf.d/erpnext.cnf
 [mysqld]
@@ -190,8 +188,7 @@ Options are:
 
 Done!
 3) Simple command:
-常用命令
-
+常用命令  
 ```sh
    mysql -uroot -p
    create database 数据库名;
