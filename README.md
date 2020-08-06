@@ -1,7 +1,7 @@
 #### Install ERPNext on CentOS 8
 在CentOS 8上安装ERPNext  
 ##### Some quick notes on installing ERPNext on CentOS 8.
-有关在CentOS 8上安装ERPNext的一些快速注意事项。
+有关在CentOS 8上安装ERPNext的一些注意事项。
 
 ##### Download  CentOS8 on http://isoredirect.centos.org/centos/8/isos/x86_64/.
 下载CentOS8
@@ -12,9 +12,10 @@
 ##### After install, login and ensure your installation is up to date by running :
 安装完成请更新系统
 #####   sudo yum update -y
-Install the extra packages repository:
-添加epel-release源
-#####   sudo yum install -y epel-release
+#####   Install the extra packages repository:
+添加epel-release源  
+#####  sudo yum install -y epel-release
+#####   Replace packages repository(china):
 替换成国内源
 #####   # file: /etc/yum.repos.d/CentOS-AppStream.repo
 [AppStream]  
@@ -52,7 +53,9 @@ baseurl=file:///media/CentOS/AppStream/
 gpgcheck=1  
 enabled=1  
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial  
+
 或者  
+
 cd /etc/yum.repos.d/  
 mv /etc/yum.repos.d/CentOS-AppStream.repo /etc/yum.repos.d/CentOS-AppStream.repo.bak  
 mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak  
