@@ -31,55 +31,55 @@ Just so you know:
 3) Replace packages repository(china):
 替换成国内源
 ```sh
-#####   # file: /etc/yum.repos.d/CentOS-AppStream.repo
-[AppStream]  
-name=CentOS-$releasever - AppStream  
-baseurl=http://mirrors.aliyun.com/centos/$releasever/AppStream/$basearch/os/   
-gpgcheck=1   
-enabled=1   
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial   
+   #####   # file: /etc/yum.repos.d/CentOS-AppStream.repo
+   [AppStream]  
+   name=CentOS-$releasever - AppStream  
+   baseurl=http://mirrors.aliyun.com/centos/$releasever/AppStream/$basearch/os/   
+   gpgcheck=1   
+   enabled=1   
+   gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial   
 
-##### # file: /etc/yum.repos.d/CentOS-Base.repo
-[BaseOS]  
-name=CentOS-$releasever - Base  
-baseurl=http://mirrors.aliyun.com/centos/$releasever/BaseOS/$basearch/os/  
-gpgcheck=1  
-enabled=1  
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial  
+   ##### # file: /etc/yum.repos.d/CentOS-Base.repo
+   [BaseOS]  
+   name=CentOS-$releasever - Base  
+   baseurl=http://mirrors.aliyun.com/centos/$releasever/BaseOS/$basearch/os/  
+   gpgcheck=1  
+   enabled=1  
+   gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial  
 
-##### # file: /etc/yum.repos.d/CentOS-Epel.repo
-[epel]  
-name=CentOS-$releasever - Epel  
-baseurl=http://mirrors.aliyun.com/epel/8/Everything/$basearch  
-enabled=1  
-gpgcheck=0  
+   ##### # file: /etc/yum.repos.d/CentOS-Epel.repo
+   [epel]  
+   name=CentOS-$releasever - Epel  
+   baseurl=http://mirrors.aliyun.com/epel/8/Everything/$basearch  
+   enabled=1  
+   gpgcheck=0  
 
-##### # file: /etc/yum.repos.d/CentOS-Media.repo
-[c8-media-BaseOS]  
-name=CentOS-BaseOS-$releasever - Media  
-baseurl=file:///media/CentOS/BaseOS/  
-gpgcheck=1  
-enabled=1  
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial  
-[c8-media-AppStream]  
-name=CentOS-AppStream-$releasever - Media  
-baseurl=file:///media/CentOS/AppStream/  
-gpgcheck=1  
-enabled=1  
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial  
+   ##### # file: /etc/yum.repos.d/CentOS-Media.repo
+   [c8-media-BaseOS]  
+   name=CentOS-BaseOS-$releasever - Media  
+   baseurl=file:///media/CentOS/BaseOS/  
+   gpgcheck=1  
+   enabled=1  
+   gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial  
+   [c8-media-AppStream]  
+   name=CentOS-AppStream-$releasever - Media  
+   baseurl=file:///media/CentOS/AppStream/  
+   gpgcheck=1  
+   enabled=1  
+   gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial  
 
 或者  
 
-cd /etc/yum.repos.d/  
-mv /etc/yum.repos.d/CentOS-AppStream.repo /etc/yum.repos.d/CentOS-AppStream.repo.bak  
-mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak  
-mv /etc/yum.repos.d/CentOS-centosplus.repo /etc/yum.repos.d/CentOS-centosplus.repo.bak  
-mv /etc/yum.repos.d/CentOS-Extras.repo /etc/yum.repos.d/CentOS-Extras.repo.bak  
-mv /etc/yum.repos.d/CentOS-PowerTools.repo /etc/yum.repos.d/CentOS-PowerTools.repo.bak  
+   cd /etc/yum.repos.d/  
+   mv /etc/yum.repos.d/CentOS-AppStream.repo /etc/yum.repos.d/CentOS-AppStream.repo.bak  
+   mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak  
+   mv /etc/yum.repos.d/CentOS-centosplus.repo /etc/yum.repos.d/CentOS-centosplus.repo.bak  
+   mv /etc/yum.repos.d/CentOS-Extras.repo /etc/yum.repos.d/CentOS-Extras.repo.bak  
+   mv /etc/yum.repos.d/CentOS-PowerTools.repo /etc/yum.repos.d/CentOS-PowerTools.repo.bak  
 
-curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-8.repo  
-yum makecache  
-yum -y update  
+   curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-8.repo  
+   yum makecache  
+   yum -y update  
 ```
 4) Closed Firewall&SULinux:
 ```sh
@@ -87,7 +87,7 @@ yum -y update
   systemctl disable firewalld #在开机时禁用服务 
 ```
   sestatus -v 或getenforce  #显示服务的状态  
-  永久关闭selinux 
+  永久关闭selinux  
 ```sh  
   vi /etc/selinux/config   
   SELINUX=disabled  默认值是: #SELINUX=enforcing  
@@ -143,9 +143,9 @@ This will allow the updates to settle and the kernel parameters to get set.
 ```
 
 ## Prepare MariaDB (mysql) for ERPNext
-为ERPNext准备数据库（MariaDB 10)
+为ERPNext准备数据库（MariaDB 10)  
 1) Edit the MariaDB configuration to set the correct character set:
-编辑配置文件
+编辑配置文件  
 ```sh
   cat <<EOF >/etc/my.cnf.d/erpnext.cnf
 [mysqld]
@@ -258,6 +258,7 @@ NOTE: Don't visit your new site with a browser just yet!
   bench install-app erpnext
   or
   bench --site erpdev.leanbench.com install-app erpnext
+  $ bench --site [site-name] install-app [app-name]
 ```
 
 At the end of this step, the temporary server will stop and the exception
