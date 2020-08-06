@@ -1,4 +1,4 @@
-<font color=#0099ff size=12 face="黑体">Install ERPNext on CentOS 8</font>
+$\color{#FF0000}{红色字}$
 ## <font color="#660000">Install ERPNext on CentOS 8</font><br />
 在CentOS 8上安装ERPNext
 ##### Some quick notes on installing ERPNext on CentOS 8.
