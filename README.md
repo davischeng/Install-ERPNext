@@ -147,7 +147,7 @@ For the second command, a red error message appears early on about an "editable 
 
 When it's done you should get the message in green text:  
 
-<span style="color: green"> SUCCESS: Bench frappe-bench initialized  </span>   
+* SUCCESS: Bench frappe-bench initialized
 Create a new frappe site:  
 Prerequisites:  
 
