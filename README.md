@@ -256,6 +256,8 @@ NOTE: Don't visit your new site with a browser just yet!
 ```sh
   bench get-app erpnext --branch version-12
   bench install-app erpnext
+  or
+  bench --site erpdev.leanbench.com install-app erpnext
 ```
 
 At the end of this step, the temporary server will stop and the exception
@@ -321,3 +323,14 @@ Ensure the test server from above is not running.
 ```
 
 After this your server should be accessible on port 80. You'll need to use the domain name you specified above when creating the site, otherwise you'll see the default nginx page.
+## Bench Manager
+
+Bench Manager is a GUI frontend for Bench with the same functionalties. You can install it by executing the following command:
+```sh
+$ bench setup manager
+```
+Note: This will create a new site to setup Bench Manager, if you want to set it up on an existing site, run the following commands:
+```sh
+$ bench get-app https://github.com/frappe/bench_manager.git
+$ bench --site <sitename> install-app bench_manager
+```
