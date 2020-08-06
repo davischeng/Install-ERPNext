@@ -1,6 +1,5 @@
-! 月出惊山鸟，
-! Install ERPNext on CentOS 8
-在CentOS 8上安装ERPNext
+# Install ERPNext on CentOS 8
+# 在CentOS 8上安装ERPNext
 ##### Some quick notes on installing ERPNext on CentOS 8.
 有关在CentOS 8上安装ERPNext的一些快速注意事项。
 
