@@ -189,16 +189,16 @@ Options are:
 Done!
 
 ## Install ERPNext
-安装ERPNext
+安装ERPNext  
 1) Switch to the ERP user (or login as it) and change to home directory:
-切换用户并返回主目录
+切换用户并返回主目录  
 ```sh
   su erp
   cd
 ```
 
 2) Install frappe-bench with pip and initialise:
-安装Frappe-bench
+安装Frappe-bench  
 This step takes a while so get yourself a beer. It reaches out to the Internet
 and downloads a bunch of stuff and then builds it.
 
@@ -217,7 +217,7 @@ When it's done you should get the message in green text:
 ```
 
 3) Create a new frappe site:
-新增Frappe站点
+新增Frappe站点  
 Prerequisites:
   * You need a name for your site. We called ours erpdev.softwaretohardware.com
   * You'll need your MariaDB root password from earlier.
@@ -233,7 +233,7 @@ First we temporarily start the frappe development server:
 Then we create a new site. Substitute your own name.
 
 ```sh
-  bench new-site erpdev.softwaretohardware.com
+  bench new-site erpdev.leanbench.com
 ```
 
 You will be prompted for the mysql password and a bit later, for the
@@ -242,7 +242,7 @@ adminstrator password for your new site.
 NOTE: Don't visit your new site with a browser just yet!
 
 4) Install the ERPNext application
-安装ERPNext应用
+安装ERPNext应用  
 ```sh
   bench get-app erpnext --branch version-12
   bench install-app erpnext
