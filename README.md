@@ -187,7 +187,17 @@ Options are:
   * Reload priv tables now - Y
 
 Done!
-
+3) Simple command:
+```sh
+   mysql -uroot -p
+   create database 数据库名;
+   drop database 数据库名;
+   show databases;
+   use 数据库名;
+   drop table 表名;
+   mysqldump -u 用户名 -p 数据库名 > 导出的文件名;
+   exit;   
+```
 ## Install ERPNext
 安装ERPNext  
 1) Switch to the ERP user (or login as it) and change to home directory:
