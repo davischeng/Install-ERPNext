@@ -98,6 +98,10 @@ Just so you know:
   sudo dnf groupinstall -y "Development Tools"  
   sudo yum install -y gcc make git mariadb mariadb-server nginx supervisor python3 python3-devel python3-setuptools python3-pip python2 python2-devel python2-setuptools python2-pipredis nodejs
   sudo npm install -g yarn
+  ```
+2) Install wkhtmltopdf: 
+  ```sh
+  wget https://github-production-release-asset-2e65be.s3.amazonaws.com/131323182/4c2dd800-ab8e-11ea-95aa-09875726406d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200807%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200807T030659Z&X-Amz-Expires=300&X-Amz-Signature=9aa6009bac0c1c78cfc19af61a34506be3bac2880d79d1f927d3336ce0dde99b&X-Amz-SignedHeaders=host&actor_id=10173324&repo_id=131323182&response-content-disposition=attachment%3B%20filename%3Dwkhtmltox-0.12.6-1.centos8.x86_64.rpm&response-content-type=application%2Foctet-stream
 ```
 
 2) Create a user for ERPNext to run as, allowing it sudo access too:
