@@ -96,7 +96,7 @@ Just so you know:
 安装依赖  
 ```sh
   sudo dnf groupinstall -y "Development Tools"  
-  sudo yum install -y gcc make git mariadb mariadb-server nginx supervisor python3 python3-devel python2 python2-devel redis nodejs
+  sudo yum install -y gcc make git mariadb mariadb-server nginx supervisor python3 python3-devel python3-setuptools python3-pip python2 python2-devel python2-setuptools python2-pipredis nodejs
   sudo npm install -g yarn
 ```
 
