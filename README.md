@@ -250,7 +250,7 @@ First we temporarily start the frappe development server:
 Then we create a new site. Substitute your own name.
 
 ```sh
-  bench new-site erpdev.leanbench.com
+  bench new-site erpdev.leanbench.com # Create a new site
 ```
 
 You will be prompted for the mysql password and a bit later, for the
@@ -262,11 +262,8 @@ NOTE: Don't visit your new site with a browser just yet!
 安装ERPNext应用  
 
 ```sh
-  bench get-app erpnext --branch version-12
-  bench install-app erpnext
-  or
-  bench --site erpdev.leanbench.com install-app erpnext
-  $ bench --site [site-name] install-app [app-name]
+  bench get-app erpnext --branch version-12  # Add ERPNext to your bench apps  
+  bench --site erpdev.leanbench.com install-app erpnext # Install ERPNext for the site
 ```
 
 At the end of this step, the temporary server will stop and the exception
