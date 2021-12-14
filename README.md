@@ -95,19 +95,27 @@ Just so you know:
 1) Install required packages:
 安装依赖  
 ```sh
+  curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+  curl --silent --location https://rpm.nodesource.com/setup_14.x | sudo bash -
   sudo dnf groupinstall -y "Development Tools"  
-  sudo yum install -y gcc make git mariadb mariadb-server nginx supervisor python3 python3-devel python3-setuptools python3-pip python2 python2-devel python2-setuptools python2-pip redis nodejs
+  sudo yum install -y redhat-lsb-core git openssl-devel libffi-devel gcc make git mariadb mariadb-server 
+  sudo yum install -y nginx supervisor python39 python39-devel python39-setuptools python39-pip redis nodejs
   sudo npm install -g yarn
+  pip3 install --upgrade pip setuptools
+  pip3 install ansible
   ```
 #### Install wkhtmltopdf: 
   ```sh
-  wget https://github-production-release-asset-2e65be.s3.amazonaws.com/131323182/4c2dd800-ab8e-11ea-95aa-09875726406d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200807%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200807T030659Z&X-Amz-Expires=300&X-Amz-Signature=9aa6009bac0c1c78cfc19af61a34506be3bac2880d79d1f927d3336ce0dde99b&X-Amz-SignedHeaders=host&actor_id=10173324&repo_id=131323182&response-content-disposition=attachment%3B%20filename%3Dwkhtmltox-0.12.6-1.centos8.x86_64.rpm&response-content-type=application%2Foctet-stream
+   wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases  *.rpm
 ```
 
 2) Create a user for ERPNext to run as, allowing it sudo access too:
 添加用户  
 ```sh
-  sudo useradd -m erp -G wheel
+   adduser bench -d /opt/bench
+   passwd bench
+   usermod -aG wheel bench
+   sudo su - bench
 ```
 
 3) (Optional) Configure sudo so it doesn't need a password:
