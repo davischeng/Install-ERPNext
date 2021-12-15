@@ -113,6 +113,8 @@ Just so you know:
   
   pip3 install --upgrade pip setuptools
   pip3 install ansible
+  
+  yarn add air-datepicker@github:frappe/air-datepicker
   ```
 #### Install wkhtmltopdf: 
   ```sh
