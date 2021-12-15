@@ -101,6 +101,16 @@ Just so you know:
   sudo yum install -y redhat-lsb-core git openssl-devel libffi-devel gcc make git mariadb mariadb-server 
   sudo yum install -y nginx supervisor python39 python39-devel python39-setuptools python39-pip redis nodejs
   sudo npm install -g yarn
+  python36 升级到39
+  删除软连接
+  rm -rf /usr/bin/python3
+  rm -rf /usr/bin/pip3
+  创建软连接
+  ln -s /usr/bin/python3.9  /usr/bin/python3
+  ln -s /usr/bin/pip3.9 /usr/bin/pip3
+  python3 -V
+  pip3 -V
+  
   pip3 install --upgrade pip setuptools
   pip3 install ansible
   ```
