@@ -1,8 +1,14 @@
 # Install ERPNext on CentOS Linux or CentOS Stream
 
-***CentOS Linux 8  End-of-life Dec 31st, 2021
-***CentOS Stream 8 End-of-life May 31st, 2024.
-***CentOS Stream 9 End of RHEL9 full support phase.
+```sh
+CentOS Linux 8  End-of-life Dec 31st, 2021.
+```
+```sh
+CentOS Stream 8 End-of-life May 31st, 2024.
+```
+```sh
+CentOS Stream 9 End of RHEL9 full support phase.
+```
 
 在CentOS 8上安装ERPNext软件  
 http://erpnext.com/
