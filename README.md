@@ -1,4 +1,9 @@
-# Install ERPNext on CentOS 8
+# Install ERPNext on CentOS Linux or CentOS Stream
+
+***CentOS Linux 8  End-of-life Dec 31st, 2021
+***CentOS Stream 8 End-of-life May 31st, 2024.
+***CentOS Stream 9 End of RHEL9 full support phase.
+
 在CentOS 8上安装ERPNext软件  
 http://erpnext.com/
 Some quick notes on installing ERPNext on CentOS 8.
@@ -310,7 +315,7 @@ Ensure the test server from above is not running.
   bench setup supervisor
   bench setup nginx
 ```
-2) setup nginx supervisor
+2) setup nginx supervisor:请确认在应用路径下/opt/frappe/config/有nginx.conf和supervisor.conf文件
 ```sh  
    yum install -y nginx supervisor
 ```
