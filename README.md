@@ -79,17 +79,7 @@ Just so you know:
    yum makecache  
    yum -y update  
 ```
-4) Closed Firewall&SULinux:
-```sh
-  systemctl status firewalld #显示服务的状态  
-  systemctl disable firewalld #在开机时禁用服务 
-```
-   sestatus -v 或getenforce  #显示服务的状态  
-   永久关闭selinux    
-```sh  
-  vi /etc/selinux/config   
-  SELINUX=disabled  默认值是: #SELINUX=enforcing  
-```
+
 ## Prepare OS for ERPNext
 为安装ERPNext准备  
 1) Install required packages:
@@ -99,7 +89,7 @@ Just so you know:
   curl --silent --location https://rpm.nodesource.com/setup_14.x | sudo bash -
   sudo dnf groupinstall -y "Development Tools"  
   sudo yum install -y redhat-lsb-core git openssl-devel libffi-devel gcc make git mariadb mariadb-server 
-  sudo yum install -y nginx supervisor python39 python39-devel python39-setuptools python39-pip redis nodejs
+  sudo yum install -y python39 python39-devel python39-setuptools python39-pip redis nodejs
   sudo npm install -g yarn
   python36 升级到39
   删除软连接
@@ -115,6 +105,7 @@ Just so you know:
   pip3 install ansible
   
   yarn add air-datepicker@github:frappe/air-datepicker
+  yarn add node-sass
   ```
 #### Install wkhtmltopdf: 
   ```sh
@@ -313,14 +304,17 @@ You can start it again at any time.
 Ensure the test server from above is not running.
 
 
-1) Create the production configuration files for supervisor and nginx:
+1) Create the production configuration files for supervisor and nginx:在没有安装nginx&supervisor时安装
 
 ```sh
   bench setup supervisor
   bench setup nginx
 ```
-
-2) Set permissions including relaxing SELinux a bit
+2) setup nginx supervisor
+```sh  
+   yum install -y nginx supervisor
+```
+3) Set permissions including relaxing SELinux a bit:要在SELinux打开时设置设置权限和文件连接
 
 ```sh
   chmod 755 /home/erp
@@ -330,13 +324,24 @@ Ensure the test server from above is not running.
   sudo setsebool -P httpd_read_user_content=1
 ```
 
-3) Link the new configuration files to their respective services:
+
+4) Link the new configuration files to their respective services:要在SELinux打开时，将新配置文件链接到各自的服务
 
 ```sh
   sudo ln -s `pwd`/config/supervisor.conf /etc/supervisord.d/frappe-bench.ini
   sudo ln -s `pwd`/config/nginx.conf /etc/nginx/conf.d/frappe-bench.conf
 ```
-
+5) Closed Firewall&SULinux:关闭Firewall&SULinux
+```sh
+  systemctl status firewalld #显示服务的状态  
+  systemctl disable firewalld #在开机时禁用服务 
+```
+   sestatus -v 或getenforce  #显示服务的状态  
+   永久关闭selinux    
+```sh  
+  vi /etc/selinux/config   
+  SELINUX=disabled  默认值是: #SELINUX=enforcing  
+```
 4) Enable services to start at boot:
 ```sh
   sudo systemctl enable supervisord
